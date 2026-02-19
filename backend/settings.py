@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-vyhk6x(&pg)$xnjh_$$&*!20&yo@zd4l&nr12v2p^w8(@z#mtl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','192.168.170.105']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '192.168.170.105',
+    'abdulsalim.pythonanywhere.com',  # production backend
+]
 
 # CORS: allow frontend origin
 CORS_ALLOW_ALL_ORIGINS = True  # For dev; set CORS_ALLOWED_ORIGINS in production
@@ -60,7 +65,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR, 'templates'],  
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,6 +75,12 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://boresa.netlify.app",
+    "http://localhost:5173", 
+    "http://127.0.0.1:5173",
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
